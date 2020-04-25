@@ -10,15 +10,18 @@
   <head>
     <meta charset="utf-8">
     <title>Index</title>
+    <link href="../style/calc.css" rel="stylesheet" type="text/css">
   </head>
   <body>
   Hello ~~~~~~ index.jsp
   <br>
-  <a href="views/test">Hi</a><br>
-  <a href="views/test?cnt=10">Many Hi</a><br>
-  <a href="views/hello.html">How many hello do you want?</a><br>
-  <a href="views/postTest.html">Post Test</a><br>
-  <a href="views/calculator.html">Calculator</a>
-
+  <div class="mainDiv">
+    <p><a href="views/test">Hi</a></p>
+    <p><a href="views/test?cnt=10">Many Hi</a></p>
+    <p><a href="views/hello.html">How many hello do you want?</a></p>
+    <p><a href="views/postTest.html">Post Test</a></p>
+    <p><a href="views/calculator.html">Calculator</a></p>
+    <p><a href="views/calculator2.html">Calculator using JSP</a></p>
+  </div>
   </body>
 </html>

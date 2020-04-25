@@ -7,8 +7,8 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/views/cal2")
-public class calculator2 extends HttpServlet
+@WebServlet("/views/cal3")
+public class calculator3 extends HttpServlet
 {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -74,7 +74,7 @@ public class calculator2 extends HttpServlet
             resp.addCookie(valueCookie);
             resp.addCookie(opCookie);
 
-            resp.sendRedirect("/views/calculator.html");
+            resp.sendRedirect("/views/calculator2.html");
 
         }// else
 
