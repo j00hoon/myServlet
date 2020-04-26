@@ -21,7 +21,11 @@
     <p><a href="views/hello.html">How many hello do you want?</a></p>
     <p><a href="views/postTest.html">Post Test</a></p>
     <p><a href="views/calculator.html">Calculator</a></p>
-    <p><a href="views/calculator2.html">Calculator using JSP</a></p>
+    <p><a href="views/calculator3.html">Get method call / Post method call</a></p>
+    <p><a href="views/calc.jsp">Calculator JSP</a></p>
+    <p><a href="views/Hello.jsp">Hello JSP</a></p>
+    <p><a href="views/spagSP.jsp">Spaghetti Code MVC Model 1</a></p>
+    <p><a href="views/spagSP2">Spaghetti Code MVC Model 2</a></p>
   </div>
   </body>
 </html>

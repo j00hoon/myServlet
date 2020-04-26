@@ -24,6 +24,7 @@ public class calculator2 extends HttpServlet
         HttpSession session = req.getSession();
         PrintWriter out = resp.getWriter();
 
+
         if(!num.equals(""))
         {
             v = Integer.parseInt(num);
