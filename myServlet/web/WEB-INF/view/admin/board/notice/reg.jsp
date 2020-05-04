@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>코딩 전문가를 만들기 위한 온라인 강의 시스템</title>
+    <title>myServlet Hello</title>
     <meta charset="UTF-8">
     <title>공지사항목록</title>
 
@@ -27,21 +27,21 @@
             <!-- ---------------------------<header>--------------------------------------- -->
 
             <h1 id="logo">
-                <a href="/index.jsp">
+                <a href="/index">
                     <img src="/images/logo.png" alt="뉴렉처 온라인" />
 
                 </a>
             </h1>
 
             <section>
-                <h1 class="hidden">헤더</h1>
+                <h1 class="hidden">Header</h1>
 
                 <nav id="main-menu">
-                    <h1>메인메뉴</h1>
+                    <h1>Main Menu</h1>
                     <ul>
-                        <li><a href="/guide">학습가이드</a></li>
+                        <li><a href="/guide">Guide Line</a></li>
 
-                        <li><a href="/course">강좌선택</a></li>
+                        <li><a href="/course">Select Course</a></li>
                         <li><a href="/answeris/index">AnswerIs</a></li>
                     </ul>
                 </nav>
@@ -49,42 +49,42 @@
                 <div class="sub-menu">
 
                     <section id="search-form">
-                        <h1>강좌검색 폼</h1>
+                        <h1>Search Course</h1>
                         <form action="/course">
                             <fieldset>
                                 <legend>과정검색필드</legend>
-                                <label>과정검색</label>
+                                <label>Search Course</label>
                                 <input type="text" name="q" value="" />
-                                <input type="submit" value="검색" />
+                                <input type="submit" value="Search" />
                             </fieldset>
                         </form>
                     </section>
 
                     <nav id="acount-menu">
-                        <h1 class="hidden">회원메뉴</h1>
+                        <h1 class="hidden">Member Menu</h1>
                         <ul>
-                            <li><a href="/index.jsp">HOME</a></li>
+                            <li><a href="/index">HOME</a></li>
 
 
 
                             <li>
                                 <form action="/logout" method="post">
                                     <input type="hidden" name="" value="" />
-                                    <input type="submit" value="로그아웃"
+                                    <input type="submit" value="Log Out"
                                         style="border:none;background: none;vertical-align: middle;font-size: 10px;color:#979797;font-weight: bold;" />
 
                                 </form>
                             </li>
 
-                            <li><a href="/member/agree">회원가입</a></li>
+                            <li><a href="/member/agree">Register</a></li>
                         </ul>
                     </nav>
 
                     <nav id="member-menu" class="linear-layout">
-                        <h1 class="hidden">고객메뉴</h1>
+                        <h1 class="hidden">Customer Menu</h1>
                         <ul class="linear-layout">
-                            <li><a href="/member/home"><img src="/images/txt-mypage.png" alt="마이페이지" /></a></li>
-                            <li><a href="/notice/list.html"><img src="/images/txt-customer.png" alt="고객센터" /></a></li>
+                            <li><a href="/member/home"><img src="/images/txt-mypage.png" alt="My Page" /></a></li>
+                            <li><a href="/admin/board/notice/list"><img src="/images/txt-customer.png" alt="Help" /></a></li>
                         </ul>
                     </nav>
 
@@ -113,18 +113,18 @@
                 <h1>ADMIN PAGE</h1>
 
                 <nav class="menu text-menu first margin-top">
-                    <h1>마이페이지</h1>
+                    <h1>My Page</h1>
                     <ul>
-                        <li><a href="/WEB-INF/view/admin/index.html">관리자홈</a></li>
-                        <li><a href="/teacher/index.html">선생님페이지</a></li>
-                        <li><a href="/WEB-INF/view/student/index.html">수강생페이지</a></li>
+                        <li><a href="/admin/index">Admin Home</a></li>
+                        <li><a href="/teacher/index.html">Teacher Page</a></li>
+                        <li><a href="/index">Student Page</a></li>
                     </ul>
                 </nav>
 
                 <nav class="menu text-menu">
-                    <h1>알림관리</h1>
+                    <h1>Management</h1>
                     <ul>
-                        <li><a href="/WEB-INF/view/admin/board/notice/list.html">공지사항</a></li>
+                        <li><a href="/admin/board/notice/list">Announcement</a></li>
                     </ul>
                 </nav>
 
@@ -135,45 +135,50 @@
 
 
             <main>
-                <h2 class="main title">공지사항 등록</h2>
+                <h2 class="main title">Announcement Register</h2>
 
                 <div class="breadcrumb">
                     <h3 class="hidden">breadlet</h3>
                     <ul>
                         <li>home</li>
-                        <li>게시글 관리</li>
-                        <li>공지사항</li>
+                        <li>Management</li>
+                        <li>Announcement</li>
                     </ul>
                 </div>
 
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" action="reg" enctype="multipart/form-data">
                     <div class="margin-top first">
-                        <h3 class="hidden">공지사항 입력</h3>
+                        <h3 class="hidden">Create Announcement</h3>
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th>제목</th>
+                                    <th>Title</th>
                                     <td class="text-align-left text-indent text-strong text-orange" colspan="3">
                                         <input type="text" name="title" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>첨부파일</th>
+                                    <th>File</th>
                                     <td colspan="3" class="text-align-left text-indent"><input type="file"
-                                            name="file" /> </td>
+                                           name="file" /> </td>
+                                </tr>
+                                <tr>
+                                    <th>File</th>
+                                    <td colspan="3" class="text-align-left text-indent"><input type="file"
+                                                                                               name="file" /> </td>
                                 </tr>
                                 <tr class="content">
                                     <td colspan="4"><textarea class="content" name="content"></textarea></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4" class="text-align-right"><input class="vertical-align" type="checkbox" id="open" name="open" value="true"><label for="open" class="margin-left">바로공개</label> </td>
+                                    <td colspan="4" class="text-align-right"><input class="vertical-align" type="checkbox" id="open" name="open" value="true"><label for="open" class="margin-left">Open</label> </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="margin-top text-align-center">
-                        <input class="btn-text btn-default" type="submit" value="등록" />
-                        <a class="btn-text btn-cancel" href="list.html">취소</a>
+                        <input class="btn-text btn-default" type="submit" value="Register" />
+                        <a class="btn-text btn-cancel" href="/admin/board/notice/list">Cancel</a>
                     </div>
                 </form>
 

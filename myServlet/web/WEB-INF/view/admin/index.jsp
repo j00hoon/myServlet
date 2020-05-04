@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +31,7 @@
             <!-- ---------------------------<header>--------------------------------------- -->
 
             <h1 id="logo">
-                <a href="/index.jsp">
+                <a href="/WEB-INF/view/index.jsp">
                     <img src="/images/logo.png" alt="뉴렉처 온라인" />
 
                 </a>
@@ -56,7 +58,7 @@
                                 <legend>과정검색필드</legend>
                                 <label>과정검색</label>
                                 <input type="text" name="q" value="" />
-                                <input type="submit" value="검색" />
+                                <input type="submit" value="Search" />
                             </fieldset>
                         </form>
                     </section>
@@ -64,9 +66,9 @@
                     <nav id="acount-menu">
                         <h1 class="hidden">회원메뉴</h1>
                         <ul>
-                            <li><a href="/index.jsp">HOME</a></li>
-                            <li><a href="/WEB-INF/view/member/login.html">로그인</a></li>
-                            <li><a href="/WEB-INF/view/member/agree.html">회원가입</a></li>
+                            <li><a href="/WEB-INF/view/index.jsp">HOME</a></li>
+                            <li><a href="/WEB-INF/view/member/login.html">Login</a></li>
+                            <li><a href="/WEB-INF/view/member/agree.html">Register</a></li>
                         </ul>
                     </nav>
 
@@ -74,7 +76,7 @@
                         <h1 class="hidden">고객메뉴</h1>
                         <ul class="linear-layout">
                             <li><a href="/member/home"><img src="/images/txt-mypage.png" alt="마이페이지" /></a></li>
-                            <li><a href="/notice/list.html"><img src="/images/txt-customer.png" alt="고객센터" /></a></li>
+                            <li><a href="/notice/list"><img src="/images/txt-customer.png" alt="고객센터" /></a></li>
                         </ul>
                     </nav>
 
@@ -104,18 +106,18 @@
 				<h1>ADMIN PAGE</h1>
 
 				<nav class="menu text-menu first margin-top">
-					<h1>마이페이지</h1>
+					<h1>My Page</h1>
 					<ul>
-						<li><a href="/WEB-INF/view/admin/index.html">관리자홈</a></li>
-						<li><a href="/teacher/index.html">선생님페이지</a></li>
-						<li><a href="/WEB-INF/view/student/index.html">수강생페이지</a></li>
+						<li><a href="/WEB-INF/view/admin/index.jsp">Admin Home</a></li>
+						<li><a href="/teacher/index.html">Teacher Page</a></li>
+						<li><a href="/WEB-INF/view/student/index.html">Student Page</a></li>
 					</ul>
 				</nav>
 				
 				<nav class="menu text-menu">
-					<h1>알림관리</h1>
+					<h1>Announcement Management</h1>
 					<ul>						
-						<li><a href="/WEB-INF/view/admin/board/notice/list.html">공지사항</a></li>
+						<li><a href="/admin/board/notice/list">Announcement</a></li>
 					</ul>
 				</nav>
 								

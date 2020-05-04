@@ -1,28 +1,33 @@
-package controller;
+package controller.controllerNotice;
 
 import model.notice;
+import service.noticeService;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.*;
-import java.util.Date;
 
 @WebServlet("/notice/detail")
-public class noticeDetailController extends HttpServlet
+public class detailController extends HttpServlet
 {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+        int id = Integer.parseInt(req.getParameter("id"));
+
+        noticeService ns = new noticeService();
+        notice n = ns.getNotice(id);
+
+        req.setAttribute("n", n);
+
+
+        /*
         Connection con = null;
         //Statement st = null;
         ResultSet rs = null;
-
-        int id = Integer.parseInt(req.getParameter("id"));
 
         String url = "jdbc:mysql://localhost:3307/myservlet";
         String user = "root";
@@ -75,8 +80,9 @@ public class noticeDetailController extends HttpServlet
             e.printStackTrace();
         }// catch
 
-        req.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp").forward(req, resp);
+         */
 
+        req.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp").forward(req, resp);
 
     }
 }

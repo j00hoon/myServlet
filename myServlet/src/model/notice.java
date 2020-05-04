@@ -1,6 +1,7 @@
 package model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class notice
 {
@@ -11,11 +12,12 @@ public class notice
     private int hit;
     private String files;
     private String content;
+    private boolean pub;
 
     public notice() {
     }
 
-    public notice(int id, String title, Date regdate, String userid, int hit, String files, String content)
+    public notice(int id, String title, Date regdate, String userid, int hit, String files, String content, boolean pub)
     {
         this.id = id;
         this.title = title;
@@ -24,6 +26,7 @@ public class notice
         this.hit = hit;
         this.files = files;
         this.content = content;
+        this.pub = pub;
     }
 
     public int getId() {
@@ -80,6 +83,14 @@ public class notice
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public boolean getPub() {
+        return pub;
+    }
+
+    public void setPub(boolean pub) {
+        this.pub = pub;
     }
 
     @Override

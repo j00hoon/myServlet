@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +35,7 @@
             <!-- ---------------------------<header>--------------------------------------- -->
 
             <h1 id="logo">
-                <a href="/index.jsp">
+                <a href="/WEB-INF/view/index.jsp">
                     <img src="/images/logo.png" alt="뉴렉처 온라인" />
 
                 </a>
@@ -70,7 +71,7 @@
                     <nav id="acount-menu">
                         <h1 class="hidden">회원메뉴</h1>
                         <ul>
-                            <li><a href="/index.jsp">HOME</a></li>
+                            <li><a href="/index">HOME</a></li>
                             <li><a href="/member/login.html">로그인</a></li>
                             <li><a href="/member/agree.html">회원가입</a></li>
                         </ul>
@@ -123,8 +124,8 @@
 	<nav class="menu">
 		<h1>협력업체</h1>
 		<ul>
-			<li><a target="_blank" href="http://www.notepubs.com"><img src="/images/notepubs.png" alt="노트펍스" /></a></li>
-			<li><a target="_blank" href="http://www.namoolab.com"><img src="/images/namoolab.png" alt="나무랩연구소" /></a></li>
+			<li><a target="_blank" href="http://www.notepubs.com"><img src="/images/notepubs.png" alt="NotePubs" /></a></li>
+			<li><a target="_blank" href="http://www.namoolab.com"><img src="/images/namoolab.png" alt="TreeLab" /></a></li>
 						
 		</ul>
 	</nav>
@@ -153,12 +154,12 @@
 						<legend class="hidden">공지사항 검색 필드</legend>
 						<label class="hidden">검색분류</label>
 						<select name="f">
-							<option  value="title">제목</option>
-							<option  value="writerId">작성자</option>
+							<option ${(param.f == "title") ? "selected" : ""} value="title">Title</option>
+							<option ${(param.f == "user_id") ? "selected" : ""} value="user_id">User</option>
 						</select> 
-						<label class="hidden">검색어</label>
-						<input type="text" name="q" value=""/>
-						<input class="btn btn-search" type="submit" value="검색" />
+						<label class="hidden">Search</label>
+						<input type="text" name="q" value="${param.q}" />
+						<input class="btn btn-search" type="submit" value="Search" />
 					</fieldset>
 				</form>
 			</div>
@@ -182,11 +183,20 @@
 <%--						for (notice n : list) {--%>
 <%--							pageContext.setAttribute("n", n);--%>
 <%--					%>--%>
+
+
+					<c:set var="page" value="${(empty param.p) ? 1 : param.p}" />
+					<%-- Print the 5 lists --%>
+					<%-- <c:set var="startNum" value="${page - (page - 1) % 5}" />--%>
+					<c:set var="startNum" value="${page}" />
+					<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count / 5), '.')}" />
+
+
 					<c:forEach var="n" items="${list}" varStatus="st">
 
 						<tr>
 							<td>${n.id}</td>
-							<td class="title indent text-align-left"><a href="detail?id=${n.id}">${n.title}</a></td>
+							<td class="title indent text-align-left"><a href="detail?id=${n.id}&p=${page}">${n.title}</a><span style="font-weight: bold;color: deeppink">[${n.hitCount}]</span></td>
 							<td>${n.userid}</td>
 							<td><fmt:formatDate value="${n.regdate}" pattern="yyyy-MM-dd" /></td>
 							<td><fmt:formatNumber value="${n.hit}" /></td>
@@ -198,24 +208,17 @@
 					</tbody>
 				</table>
 			</div>
+
+
+
 			
 			<div class="indexer margin-top align-right">
-				<h3 class="hidden">현재 페이지</h3>
-				<div><span class="text-orange text-strong">1</span> / 1 pages</div>
+				<h3 class="hidden">Current Page</h3>
+				<div><span class="text-orange text-strong">${(empty param.p) ? 1 : param.p}</span> / ${lastNum} pages</div>
 			</div>
 
 			<div class="margin-top align-center pager">
 
-
-
-
-
-
-	<c:set var="page" value="${(param.p == null) ? 1 : param.p}" />
-	<%-- Print the 5 lists --%>
-	<%-- <c:set var="startNum" value="${page - (page - 1) % 5}" />--%>
-	<c:set var="startNum" value="${page}" />
-	<c:set var="lastNum" value="30" />
 
 	<div>
 
@@ -231,17 +234,17 @@
 	<ul class="-list- center">
 		<c:forEach var="i" begin="0" end="2">
 			<c:if test="${lastNum >= startNum + i}">
-				<li><a class="-text- orange bold" href="?p=${startNum + i}&t=&q=" >${startNum + i}</a></li>
+				<li><a class="-text- ${(page == startNum + i) ? 'orange' : ''} bold" href="?p=${startNum + i}&f=${param.f}&q=${param.q}" >${startNum + i}</a></li>
 			</c:if>
 		</c:forEach>
 				
 	</ul>
 	<div>
 
-		<c:if test="${startNum + 3 < lastNum}">
+		<c:if test="${startNum + 2 < lastNum}">
 			<a href="?p=${startNum + 3}&t=&q=" class="btn btn-next"></a>
 		</c:if>
-		<c:if test="${startNum + 3 >= lastNum}">
+		<c:if test="${startNum + 2 >= lastNum}">
 			<span class="btn btn-next" onclick="alert('There are no next pages.');">Next</span>
 		</c:if>
 		

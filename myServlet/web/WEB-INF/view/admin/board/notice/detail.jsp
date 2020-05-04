@@ -135,12 +135,12 @@
 
 
         <main>
-            <h2 class="main title">공지사항</h2>
+            <h2 class="main title">Announcement</h2>
 
             <div class="breadcrumb">
                 <h3 class="hidden">breadlet</h3>
                 <ul>
-                    <li>home</li>
+                    <li>Home</li>
                     <li>Help</li>
                     <li>Announcement</li>
                 </ul>
@@ -170,7 +170,7 @@
                             <c:forTokens var="fileName" items="${n.files}" delims="," varStatus="st">
                                 <%-- fn function을 사용하는 예시 --%>
                                 <%-- <a href="${fileName}">${fn: toUpperCase(fileName)}</a>--%>
-                                <a href="${fileName}" style="font-weight: bold; color: deeppink">${fileName}</a>
+                                <a download href="/upload/${fileName}" style="font-weight: bold; color: deeppink">${fileName}</a>
                                 <c:if test="${!st.last}">
                                     /
                                 </c:if>
@@ -187,7 +187,9 @@
             <c:set var="page" value="${param.p}" />
 
             <div class="margin-top text-align-center">
-                <a class="btn btn-list" href="list?p=${page}">List</a>
+                <a class="btn-text btn-cancel" href="list?p=${page}">List</a>
+                <a class="btn-text btn-default" href="edit">Edit</a>
+                <a class="btn-text btn-default" href="del">Delete</a>
             </div>
 
             <div class="margin-top">
@@ -195,15 +197,15 @@
                     <tbody>
 
                     <tr>
-                        <th>다음글</th>
-                        <td colspan="3"  class="text-align-left text-indent">다음글이 없습니다.</td>
+                        <th>Next</th>
+                        <td colspan="3"  class="text-align-left text-indent">No Next</td>
                     </tr>
 
 
 
 
                     <tr>
-                        <th>이전글</th>
+                        <th>Prev</th>
                         <td colspan="3"  class="text-align-left text-indent"><a class="text-blue text-strong" href="">스프링 DI 예제 코드</a></td>
                     </tr>
 
